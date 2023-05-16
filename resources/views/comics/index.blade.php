@@ -4,6 +4,8 @@
 
 @section('content')
 
+<a href="{{route('comics.create')}}" class="btn btn-secondary">Create a new comic</a>
+
 <table class="table table-striped">
     <thead>
       <tr>
@@ -24,7 +26,7 @@
           <td>{{$comic->sale_date}}</td>
           <td>{{$comic->type}}</td>
           <td>
-            <a class="btn btn-secondary" href="{{route('comics.show', ['comic' => $comic->id])}} ">Detail</a>
+            <a class="btn btn-secondary" href="{{route('comics.show', ['comic' => $comic->id])}}">Detail</a>
           </td>
         </tr>
             
