@@ -23,7 +23,9 @@
           <td>{{$comic->series}}</td>
           <td>{{$comic->sale_date}}</td>
           <td>{{$comic->type}}</td>
-          <td></td>
+          <td>
+            <a class="btn btn-secondary" href="{{route('comics.show', ['comic' => $comic->id])}} ">Detail</a>
+          </td>
         </tr>
             
         @endforeach
