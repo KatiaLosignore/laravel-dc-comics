@@ -26,8 +26,9 @@
           <td>{{$comic->series}}</td>
           <td>{{$comic->sale_date}}</td>
           <td>{{$comic->type}}</td>
-          <td>
-            <a class="btn btn-secondary" href="{{route('comics.show', ['comic' => $comic->id])}}">Detail</a>
+          <td class="d-flex">
+            <a class="btn btn-secondary me-2" href="{{route('comics.show', ['comic' => $comic->id])}}">Detail</a>
+            <a class="btn btn-warning " href="{{route('comics.edit', ['comic' => $comic->id])}}">Modifica</a>
           </td>
         </tr>
             
