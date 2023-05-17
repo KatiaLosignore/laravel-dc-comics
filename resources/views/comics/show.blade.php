@@ -13,7 +13,16 @@
     <h4>Price: {{$comic->price}}</h4>
     <p>{{$comic->description}}</p>
 
-    <a href="{{route('comics.index')}}" class="btn btn-primary">Back to comics list</a>
+    <div class="d-flex">
+        <a href="{{route('comics.index')}}" class="btn btn-primary me-4 ">Back to comics list</a>
+    
+        <form action="{{route('comics.destroy', ['comic' => $comic->id])}}" method="POST">
+                  
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
 
 
 @endsection
