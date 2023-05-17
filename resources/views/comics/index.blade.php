@@ -28,7 +28,15 @@
           <td>{{$comic->type}}</td>
           <td class="d-flex">
             <a class="btn btn-secondary me-2" href="{{route('comics.show', ['comic' => $comic->id])}}">Detail</a>
-            <a class="btn btn-warning " href="{{route('comics.edit', ['comic' => $comic->id])}}">Modifica</a>
+            <a class="btn btn-warning me-2" href="{{route('comics.edit', ['comic' => $comic->id])}}">Edit</a>
+
+            <form action="{{route('comics.destroy', ['comic' => $comic->id])}}" method="POST">
+              
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+
           </td>
         </tr>
             
