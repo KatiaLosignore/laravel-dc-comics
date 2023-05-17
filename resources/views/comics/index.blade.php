@@ -30,7 +30,7 @@
             <a class="btn btn-secondary me-2" href="{{route('comics.show', ['comic' => $comic->id])}}">Detail</a>
             <a class="btn btn-warning me-2" href="{{route('comics.edit', ['comic' => $comic->id])}}">Edit</a>
 
-            <form action="{{route('comics.destroy', ['comic' => $comic->id])}}" method="POST">
+            <form action="{{route('comics.destroy', ['comic' => $comic->id])}}" method="POST" class="delete">
               
               @csrf
               @method('DELETE')

@@ -16,7 +16,7 @@
     <div class="d-flex">
         <a href="{{route('comics.index')}}" class="btn btn-primary me-4 ">Back to comics list</a>
     
-        <form action="{{route('comics.destroy', ['comic' => $comic->id])}}" method="POST">
+        <form action="{{route('comics.destroy', ['comic' => $comic->id])}}" method="POST" class="delete">
                   
             @csrf
             @method('DELETE')
