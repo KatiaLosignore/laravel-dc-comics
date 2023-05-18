@@ -63,7 +63,7 @@ class ComicController extends Controller
         $newComic->type = $form_data['type'];
         $newComic->save();
 
-        return redirect()->route('comics.show', ['comic'=> $newComic->id])->with('status', 'Comic successfully added');;
+        return redirect()->route('comics.show', ['comic'=> $newComic->id])->with('status', 'Comic successfully added!');;
 
     }
 
@@ -99,9 +99,21 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+
+        $request->validate([
+            'title' => 'required|string',
+            'description' => 'nullable|string|max:65535',
+            'thumb' => 'required|url|max:255',
+            'price' => 'required|numeric|min:0|max:9999',
+            'series' => 'required|string',
+            'sale_date' => 'required|date',
+            'type' => 'required|string',
+        ]);
+
+
         $form_data = $request->all();
         $comic->update($form_data);
-        return redirect()->route('comics.show', ['comic' => $comic->id]);
+        return to_route('comics.show', ['comic' => $comic->id])->with('status', 'Comic successfully updated!');
     }
 
     /**
