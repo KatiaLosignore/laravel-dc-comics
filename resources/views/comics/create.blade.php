@@ -1,15 +1,14 @@
 @extends('layouts.app')
 
-@section('page-title')
-    Create a new comic
-
 @section('content')
+
+    <h3 class="text-primary mt-3">Create a new comic</h3>
 
     <form method="POST" action="{{route('comics.store')}}">
 
         @csrf
         
-        <div class="mb-3">
+        <div class="mb-3 mt-4">
             <label for="thumb" class="form-label">Url image</label>
             <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" value="{{old('thumb')}}">
             @error('thumb')

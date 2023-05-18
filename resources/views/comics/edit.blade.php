@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
-@section('page-title')
-    Create a new comic
+    
 
 @section('content')
+
+    <h4 class="text-primary mt-3">Update the comic</h4>
 
     <form method="POST" action="{{route('comics.update', ['comic' => $comic->id])}}">
 
@@ -11,7 +12,7 @@
         @method('PUT')
         
         <div class="mb-3">
-            <label for="thumb" class="form-label">Url image</label>
+            <label for="thumb" class="form-label mt-4">Url image</label>
             <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" value="{{ old('thumb', $comic->thumb) }}">
             @error('thumb')
                 <div class="invalid-feedback">
