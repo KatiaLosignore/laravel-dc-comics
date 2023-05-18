@@ -17,5 +17,5 @@ deleteForms.forEach(form => {
         const confirm = window.confirm('Are you sure you want to delete the selected comic ?');
         if(confirm) form.submit();
     })
-})
+});
 
