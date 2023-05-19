@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Comic\StoreComicRequest;
+use App\Http\Requests\Comic\UpdateComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 
@@ -66,7 +67,7 @@ class ComicController extends Controller
         // $newComic->type = $form_data['type'];
 
         $newComic->fill($form_data);
-        
+
         $newComic->save();
 
         return redirect()->route('comics.show', ['comic'=> $newComic->id])->with('status', 'Comic successfully added!');;
@@ -103,22 +104,26 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comic $comic)
+    public function update(UpdateComicRequest $request, Comic $comic)
     {
 
-        $request->validate([
-            'title' => 'required|string',
-            'description' => 'nullable|string|max:65535',
-            'thumb' => 'required|url|max:255',
-            'price' => 'required|numeric|min:0|max:9999',
-            'series' => 'required|string',
-            'sale_date' => 'required|date',
-            'type' => 'required|string',
-        ]);
+        // $request->validate([
+        //     'title' => 'required|string',
+        //     'description' => 'nullable|string|max:65535',
+        //     'thumb' => 'required|url|max:255',
+        //     'price' => 'required|numeric|min:0|max:9999',
+        //     'series' => 'required|string',
+        //     'sale_date' => 'required|date',
+        //     'type' => 'required|string',
+        // ]);
 
 
-        $form_data = $request->all();
+        // $form_data = $request->all();
+
+        $form_data = $request->validated();
+
         $comic->update($form_data);
+        
         return to_route('comics.show', ['comic' => $comic->id])->with('status', 'Comic successfully updated!');
     }
 
