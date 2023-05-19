@@ -9,7 +9,7 @@
         @csrf
         
         <div class="mb-3 mt-4">
-            <label for="thumb" class="form-label">Url image</label>
+            <label for="thumb" class="form-label fw-bolder">Url image</label>
             <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" value="{{old('thumb')}}">
             @error('thumb')
                 <div class="invalid-feedback">
